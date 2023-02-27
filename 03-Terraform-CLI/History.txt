@@ -1,0 +1,66 @@
+```
+ 51  cd 03-Terraform-CLI/
+   52  ls
+   53  cp -rf ../02-First-Deployment/main.tf .
+   54  ls
+   55  vim main.tf
+   56  terraform validate
+   57  terraform init
+   58  ls
+   59  du -sh *
+   60  du -sh ../03-Terraform-CLI/
+   61  ls -a
+   62  yum install tree -y
+   63  tree .terraform
+   64  ls
+   65  ls -a
+   66  cat .terraform.lock.hcl
+   67  ls
+   68  terraform validate
+   69  vim main.tf
+   70  terraform validate
+   71  vim main.tf
+   72  terraform validate
+   73  vim main.tf
+   74  terraform validate
+   75  yum install vim -y
+   76  yum install vim* -y
+   77  vim main.tf
+   78  terraform validate
+   79  vim main.tf
+   80  terraform validate
+   81  vim main.tf
+   82  terraform validate
+   83  vim main.tf
+   84  terraform validate
+   85  terraform plan
+   86  ls
+   87  vim main.tf
+   88  ls
+   89  cat main.tf
+   90  terraform fmt
+   91  vim main.tf
+   92  terraform fmt
+   93  vim main.tf
+   94  terraform plan
+   95  ls
+   96  terraform plan -out build-plan
+   97  ls
+   98  file build-plan
+   99  cat build-plan
+  100  terraform show build-plan
+  101  terraform apply build-plan
+  102  terraform plan -destroy -out destroy-plan
+  103  ls
+  104  terraform apply "destroy-plan"
+  105  ls
+  106  terraform apply
+  107  terraform apply --auto-appove
+  108  terraform apply --auto-approve
+  109  terraform show
+  110  terraform show | grep -i Lab
+  111  terraform refresh
+  112  terraform show | grep -i Lab
+  113  terraform apply --auto-approve
+  114  terraform destroy --auto-approve
+```
