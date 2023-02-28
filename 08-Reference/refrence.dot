@@ -1,0 +1,34 @@
+digraph {
+	compound = "true"
+	newrank = "true"
+	subgraph "root" {
+		"[root] aws_eip.lb (expand)" [label = "aws_eip.lb", shape = "box"]
+		"[root] aws_eip_association.assoc_eip (expand)" [label = "aws_eip_association.assoc_eip", shape = "box"]
+		"[root] aws_instance.b (expand)" [label = "aws_instance.b", shape = "box"]
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"]" [label = "provider[\"registry.terraform.io/hashicorp/aws\"]", shape = "diamond"]
+		"[root] var.env" [label = "var.env", shape = "note"]
+		"[root] var.instance_count" [label = "var.instance_count", shape = "note"]
+		"[root] var.region" [label = "var.region", shape = "note"]
+		"[root] var.type_instance" [label = "var.type_instance", shape = "note"]
+		"[root] var.zones" [label = "var.zones", shape = "note"]
+		"[root] aws_eip.lb (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] aws_eip.lb (expand)" -> "[root] var.instance_count"
+		"[root] aws_eip_association.assoc_eip (expand)" -> "[root] aws_eip.lb (expand)"
+		"[root] aws_eip_association.assoc_eip (expand)" -> "[root] aws_instance.b (expand)"
+		"[root] aws_instance.b (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] aws_instance.b (expand)" -> "[root] var.env"
+		"[root] aws_instance.b (expand)" -> "[root] var.instance_count"
+		"[root] aws_instance.b (expand)" -> "[root] var.type_instance"
+		"[root] aws_instance.b (expand)" -> "[root] var.zones"
+		"[root] output.private_ip_n_dns (expand)" -> "[root] aws_instance.b (expand)"
+		"[root] output.public_dns (expand)" -> "[root] aws_instance.b (expand)"
+		"[root] output.public_ips (expand)" -> "[root] aws_instance.b (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_eip_association.assoc_eip (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"]" -> "[root] var.region"
+		"[root] root" -> "[root] output.private_ip_n_dns (expand)"
+		"[root] root" -> "[root] output.public_dns (expand)"
+		"[root] root" -> "[root] output.public_ips (expand)"
+		"[root] root" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)"
+	}
+}
+
