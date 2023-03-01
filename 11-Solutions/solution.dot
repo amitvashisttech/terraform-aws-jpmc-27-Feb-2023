@@ -1,0 +1,36 @@
+digraph {
+	compound = "true"
+	newrank = "true"
+	subgraph "root" {
+		"[root] aws_instance.east_backend (expand)" [label = "aws_instance.east_backend", shape = "box"]
+		"[root] aws_instance.east_frontend (expand)" [label = "aws_instance.east_frontend", shape = "box"]
+		"[root] aws_instance.west_backend (expand)" [label = "aws_instance.west_backend", shape = "box"]
+		"[root] aws_instance.west_frontend (expand)" [label = "aws_instance.west_frontend", shape = "box"]
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"]" [label = "provider[\"registry.terraform.io/hashicorp/aws\"]", shape = "diamond"]
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"].us-west-1" [label = "provider[\"registry.terraform.io/hashicorp/aws\"].us-west-1", shape = "diamond"]
+		"[root] var.east_ami" [label = "var.east_ami", shape = "note"]
+		"[root] var.instance_count" [label = "var.instance_count", shape = "note"]
+		"[root] var.west_ami" [label = "var.west_ami", shape = "note"]
+		"[root] var.zones_east" [label = "var.zones_east", shape = "note"]
+		"[root] var.zones_west" [label = "var.zones_west", shape = "note"]
+		"[root] aws_instance.east_backend (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] aws_instance.east_backend (expand)" -> "[root] var.east_ami"
+		"[root] aws_instance.east_backend (expand)" -> "[root] var.instance_count"
+		"[root] aws_instance.east_backend (expand)" -> "[root] var.zones_east"
+		"[root] aws_instance.east_frontend (expand)" -> "[root] aws_instance.east_backend (expand)"
+		"[root] aws_instance.west_backend (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"].us-west-1"
+		"[root] aws_instance.west_backend (expand)" -> "[root] var.instance_count"
+		"[root] aws_instance.west_backend (expand)" -> "[root] var.west_ami"
+		"[root] aws_instance.west_backend (expand)" -> "[root] var.zones_west"
+		"[root] aws_instance.west_frontend (expand)" -> "[root] aws_instance.west_backend (expand)"
+		"[root] output.PublicIP_East_Backend (expand)" -> "[root] aws_instance.east_backend (expand)"
+		"[root] output.PublicIP_East_Frontend (expand)" -> "[root] aws_instance.east_frontend (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_instance.east_frontend (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"].us-west-1 (close)" -> "[root] aws_instance.west_frontend (expand)"
+		"[root] root" -> "[root] output.PublicIP_East_Backend (expand)"
+		"[root] root" -> "[root] output.PublicIP_East_Frontend (expand)"
+		"[root] root" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)"
+		"[root] root" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"].us-west-1 (close)"
+	}
+}
+
