@@ -1,4 +1,10 @@
-1101  cd 02-AWS_Instance_Clinet/
+ 1069  yum install ansible -y
+ 1070   sudo amazon-linux-extras install ansible2
+ 1073  ansible --version
+ 1074  ls
+ 1075  mkdir 01-Inventory
+
+ 1101  cd 02-AWS_Instance_Clinet/
  1102  ls
  1103  rm -rf frontend
  1104  rm -rf terraform.tfstate*

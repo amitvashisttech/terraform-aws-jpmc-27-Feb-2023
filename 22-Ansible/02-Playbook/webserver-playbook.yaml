@@ -1,0 +1,33 @@
+---
+
+
+- hosts: 'web'
+  name: "WebServer Deployment Play.!!"
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: Install Required Web Packages
+      yum: name=httpd state=present
+
+    - name: Start Web Server Service
+      service: name=httpd state=started
+
+    - name: Download Required Image
+      get_url: url="https://www.mariomayhem.com/downloads/wallpapers/7/nsmb_wp7_1280.jpg"  dest=/var/www/html/mario.jpg mode=0755
+ 
+    - name: Deploy info html page
+      template: src=templates/info.j2 dest=/var/www/html/info.html
+
+
+
+- hosts: 'web'
+  name: "GIT & NTP Deployment Play.!!"
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: Install Required GIT Packages
+      yum: name=git state=present
+
+
+    - name: Install Required NTP Packages
+      yum: name=ntp state=present
