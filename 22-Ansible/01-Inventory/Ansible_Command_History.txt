@@ -1,0 +1,23 @@
+1101  cd 02-AWS_Instance_Clinet/
+ 1102  ls
+ 1103  rm -rf frontend
+ 1104  rm -rf terraform.tfstate*
+ 1105  ls
+ 1106  vim resource.tf
+ 1107  vim variable.tf
+ 1108  terraform init
+ 1109  terraform plan
+ 1110  terraform apply --auto-approve
+ 1111  terraform show
+ 1112  vim ../01-Inventory/inventory
+ 1113  ls
+ 1114  cd ..
+ 1115  ls
+ 1116  cd 01-Inventory/
+ 1117  ls
+ 1118  cat inventory
+ 1119  ansible all -i inventory -m ping -u ec2-user --private-key /root/.ssh/amitvashist-terraform.pem
+ 1120  ssh -i /root/.ssh/amitvashist-terraform.pem ec2-user@3.84.14.228
+ 1121  ansible all -i inventory -m ping -u ec2-user --private-key /root/.ssh/amitvashist-terraform.pem
+ 1122  ansible all -i inventory -m command -a 'df -h' -u ec2-user --private-key /root/.ssh/amitvashist-terraform.pem
+ 1123  ansible all -i inventory -m command -a 'hostname -f' -u ec2-user --private-key /root/.ssh/amitvashist-terraform.pem
